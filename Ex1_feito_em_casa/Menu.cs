@@ -50,8 +50,30 @@ namespace Ex1_feito_em_casa
                         List<Usuario> usuarios = new List<Usuario> ();
                         do
                         {
-                            Usuario user = new Usuario();
-                            user.Cadastro();
+                            Console.WriteLine("\n----------------------------- \nCadastro de Usuário\n");
+
+                            Console.Write("Digite seu primeiro nome: ");
+                            string nome = Validacao.ValidaString();
+                            nome = Char.ToUpper(nome[0]) + nome.Substring(1);
+
+                            Console.Write("Digite seu sobrenome: ");
+                            string sobrenome = Validacao.ValidaString();
+                            sobrenome = Char.ToUpper(sobrenome[0]) + sobrenome.Substring(1);
+
+                            Console.Write("Digite sua Idade: ");
+                             int idade = Validacao.ValidaInteiro();
+
+                            Console.Write("Digite seu email: ");
+                            string email = Validacao.ValidaString();
+
+                            Console.Write("Digite seu endereço: ");
+                            string endereco = Validacao.ValidaString();
+
+                            Console.Clear();
+
+                            Console.WriteLine($"Usuário {nome} {sobrenome} criado com sucesso \n--------------------------------");
+                            Usuario user = new Usuario(nome, sobrenome, idade, email, endereco);
+
                             Console.WriteLine("Deseja cadastrar mais 1? (y/n)");
                             resposta = Console.ReadLine();
                             usuarios.Add(user);
@@ -59,7 +81,7 @@ namespace Ex1_feito_em_casa
 
                         foreach(var item in usuarios)
                         {
-                            Console.WriteLine($"\nNome: {item.nome} {item.sobrenome} \nIdade: {item.idade} \nEmail: {item.email} \nEndereço: {item.endereco} \n");
+                            Console.WriteLine($"\nNome: {item.Nome} {item.Sobrenome} \nIdade: {item.Idade} \nEmail: {item.Email} \nEndereço: {item.Endereco} \n");
                         }
 
                         break;
