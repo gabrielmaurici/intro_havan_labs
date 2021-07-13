@@ -46,44 +46,8 @@ namespace Ex1_feito_em_casa
                         Console.WriteLine("Tchau");
                         break;
                     case 1:
-                        string resposta = "";
-                        List<Usuario> usuarios = new List<Usuario> ();
-                        do
-                        {
-                            Console.WriteLine("\n----------------------------- \nCadastro de Usuário\n");
-
-                            Console.Write("Digite seu primeiro nome: ");
-                            string nome = Validacao.ValidaString();
-                            nome = Char.ToUpper(nome[0]) + nome.Substring(1);
-
-                            Console.Write("Digite seu sobrenome: ");
-                            string sobrenome = Validacao.ValidaString();
-                            sobrenome = Char.ToUpper(sobrenome[0]) + sobrenome.Substring(1);
-
-                            Console.Write("Digite sua Idade: ");
-                             int idade = Validacao.ValidaInteiro();
-
-                            Console.Write("Digite seu email: ");
-                            string email = Validacao.ValidaString();
-
-                            Console.Write("Digite seu endereço: ");
-                            string endereco = Validacao.ValidaString();
-
-                            Console.Clear();
-
-                            Console.WriteLine($"Usuário {nome} {sobrenome} criado com sucesso \n--------------------------------");
-                            Usuario user = new Usuario(nome, sobrenome, idade, email, endereco);
-
-                            Console.WriteLine("Deseja cadastrar mais 1? (y/n)");
-                            resposta = Console.ReadLine();
-                            usuarios.Add(user);
-                        } while (resposta == "y");
-
-                        foreach(var item in usuarios)
-                        {
-                            Console.WriteLine($"\nNome: {item.Nome} {item.Sobrenome} \nIdade: {item.Idade} \nEmail: {item.Email} \nEndereço: {item.Endereco} \n");
-                        }
-
+                        ModuloUsuario moduloUsuario = new ModuloUsuario();
+                        moduloUsuario.Create();
                         break;
                     case 2:
                         Console.WriteLine("Em implementação!!!");
